@@ -15,8 +15,8 @@ var s=f.service.options[f.service.selectedIndex].text;
 var t='Hello, I would like a quote.\nService: '+s+'\nProperty: '+d.property+'\nTiming: '+(d.timing||'Flexible')+'\nName: '+d.name+'\nEmail: '+d.email+'\nPhone: '+d.phone+(d.message?'\nNotes: '+d.message:'');
 var ep=f.getAttribute('data-endpoint'),ok=document.getElementById('ok'),msg=document.getElementById('ok-msg');
 function done(sent){f.style.display='none';ok.classList.add('show');ok.focus();
-msg.textContent=sent?'Thank you, '+d.name+'. We received your request and will follow up to discuss details. Mention your 20% first-booking offer when we talk.':'Your request is ready, but this form is not connected to an inbox yet. Send it by text with the button below, or call us.';
+msg.textContent=sent?'Thank you, '+d.name+'. We received your request and will follow up to discuss details.':'Your request is ready, but this form is not connected to an inbox yet. Send it by email with the button below, or call us.';
 document.getElementById('sms').style.display=sent?'none':'inline-block';
-document.getElementById('sms').href='sms:+17204778268?body='+encodeURIComponent(t)}
+document.getElementById('sms').href='mailto:hearttohomecleaning99@gmail.com?subject='+encodeURIComponent('Cleaning request')+'&body='+encodeURIComponent(t)}
 if(ep){fetch(ep,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){if(!r.ok)throw 0;done(true)}).catch(function(){done(false)})}else done(false)});
 })();
